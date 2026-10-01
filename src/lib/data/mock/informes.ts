@@ -1,0 +1,53 @@
+// Tabla INFORMES (ejemplos ya calculados a partir del propio mock)
+import type { Informe } from './types';
+
+export const INFORMES: Informe[] = [
+  {
+    id: "Inf1",
+    fk_alumno: "A104",
+    fk_curso: "C6",
+    fk_materia: "M1",
+    fk_trayectoria: null,
+    fecha_generacion: "2026-09-20",
+    pct_asistencia: 75.0,
+    pct_trabajo: 100.0,
+    pct_participacion: 66.7,
+    informe_cualitativo: "Se destaca su compromiso en la elaboración y presentación de las actividades propuestas.",
+  },
+  {
+    id: "Inf2",
+    fk_alumno: "A101",
+    fk_curso: "C6",
+    fk_materia: "M1",
+    fk_trayectoria: null,
+    fecha_generacion: "2026-09-20",
+    pct_asistencia: 0.0,
+    pct_trabajo: 0.0,
+    pct_participacion: 0.0,
+    informe_cualitativo: "Falta compromiso en la elaboración y presentación de las actividades. No avanza en la construcción de los saberes propuestos. No participa en clase.",
+  },
+  {
+    id: "Inf3",
+    fk_alumno: "A104",
+    fk_curso: "C6",
+    fk_materia: null,
+    fk_trayectoria: "T4",
+    fecha_generacion: "2026-09-20",
+    pct_asistencia: 76.9,
+    pct_trabajo: 90.0,
+    pct_participacion: 50.0,
+    informe_cualitativo: null,
+  },
+  {
+    id: "Inf4",
+    fk_alumno: "A101",
+    fk_curso: "C6",
+    fk_materia: null,
+    fk_trayectoria: "T1",
+    fecha_generacion: "2026-09-20",
+    pct_asistencia: 0.0,
+    pct_trabajo: 0.0,
+    pct_participacion: 0.0,
+    informe_cualitativo: null,
+  },
+];
