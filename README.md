@@ -1,6 +1,6 @@
 # GestorESRN
 
-Aplicación móvil experimental para la gestión de asistencia, desempeño académico y trayectorias escolares en Escuelas Secundarias Río Negrinas (ESRN) — instituciones de reingreso educativo donde no existe la repitencia de año, sino la aprobación de trayectorias por área de conocimiento.
+Consiste en una Aplicación móvil experimental para la gestión de asistencia, desempeño académico y trayectorias escolares en Escuelas Secundarias Río Negrinas (ESRN) — instituciones de reingreso educativo donde no existe la repitencia de año, sino la aprobación de trayectorias por área de conocimiento.
 
 > ⚠️ **Proyecto en fase experimental / prototipo.** El modelo de datos, las pantallas y la arquitectura descriptos en este documento son la base inicial y están sujetos a cambios a medida que se valide la herramienta con uso real en el ámbito escolar.
 
