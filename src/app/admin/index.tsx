@@ -1,7 +1,9 @@
 import React from 'react';
-import { View, Text, Pressable, StyleSheet, SafeAreaView } from 'react-native';
+import { View, Text, StyleSheet, SafeAreaView } from 'react-native';
 import { useRouter } from 'expo-router';
 import { useSession } from '../../features/auth/session.provider';
+import { AppButton } from '../../components/ui/AppButton';
+import { theme } from '../../constants/theme';
 
 export default function AdminHome() {
   const { user, logout } = useSession();
@@ -22,24 +24,17 @@ export default function AdminHome() {
         Acá van a vivir las pantallas de carga de personal, alumnos, cursos y asignaciones.
       </Text>
 
-      <Pressable style={styles.button} onPress={handleLogout}>
-        <Text style={styles.buttonText}>Cerrar sesión</Text>
-      </Pressable>
+      <View style={styles.footer}>
+        <AppButton title="Cerrar sesión" variant="danger" onPress={handleLogout} />
+      </View>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, padding: 20, backgroundColor: '#F8FAFC' },
-  title: { fontSize: 22, fontWeight: '700', color: '#0F172A', marginTop: 20 },
-  subtitle: { fontSize: 15, color: '#475569', marginTop: 8 },
-  hint: { fontSize: 13, color: '#94A3B8', marginTop: 16 },
-  button: {
-    marginTop: 24,
-    backgroundColor: '#DC2626',
-    padding: 12,
-    borderRadius: 10,
-    alignItems: 'center',
-  },
-  buttonText: { color: 'white', fontWeight: '600' },
+  container: { flex: 1, padding: theme.spacing.lg, backgroundColor: theme.colors.background },
+  title: { fontSize: theme.typography.title, fontWeight: '700', color: theme.colors.text, marginTop: theme.spacing.lg },
+  subtitle: { fontSize: theme.typography.subtitle, color: theme.colors.muted, marginTop: theme.spacing.sm },
+  hint: { fontSize: theme.typography.body, color: theme.colors.muted, marginTop: theme.spacing.lg },
+  footer: { marginTop: theme.spacing.xl },
 });

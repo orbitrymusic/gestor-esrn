@@ -3,7 +3,6 @@ import {
   View,
   Text,
   FlatList,
-  Pressable,
   StyleSheet,
   SafeAreaView,
   ActivityIndicator,
@@ -11,6 +10,8 @@ import {
 import { useRouter } from 'expo-router';
 import { useSession } from '../features/auth/session.provider';
 import { listLoginableUsers } from '../features/auth/auth.service';
+import { Card } from '../components/ui/Card';
+import { theme } from '../constants/theme';
 
 export default function LoginScreen() {
   const { login, isLoading } = useSession();
@@ -32,14 +33,14 @@ export default function LoginScreen() {
       </View>
 
       {isLoading ? (
-        <ActivityIndicator style={styles.loader} size="large" color="#0E6FB8" />
+        <ActivityIndicator style={styles.loader} size="large" color={theme.colors.primary} />
       ) : (
         <FlatList
           data={usuarios}
           keyExtractor={(item) => item.id}
           contentContainerStyle={styles.listContent}
           renderItem={({ item }) => (
-            <Pressable style={styles.card} onPress={() => handleLogin(item.id)}>
+            <Card onPress={() => handleLogin(item.id)}>
               <Text style={styles.name}>
                 {item.apellido}, {item.nombre}
               </Text>
@@ -54,7 +55,7 @@ export default function LoginScreen() {
                 </Text>
               </View>
               <Text style={styles.area}>{item.area_del_personal}</Text>
-            </Pressable>
+            </Card>
           )}
         />
       )}
@@ -63,29 +64,22 @@ export default function LoginScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#F8FAFC' },
-  header: { padding: 20 },
-  title: { fontSize: 24, fontWeight: '700', color: '#0F172A' },
-  subtitle: { fontSize: 13, color: '#64748B', marginTop: 6 },
+  container: { flex: 1, backgroundColor: theme.colors.background },
+  header: { padding: theme.spacing.lg },
+  title: { fontSize: theme.typography.title, fontWeight: '700', color: theme.colors.text },
+  subtitle: { fontSize: theme.typography.small, color: theme.colors.muted, marginTop: theme.spacing.xs },
   loader: { marginTop: 40 },
-  listContent: { padding: 16, gap: 10 },
-  card: {
-    backgroundColor: '#FFFFFF',
-    borderRadius: 12,
-    padding: 14,
-    borderWidth: 1,
-    borderColor: '#CBD5E1',
-  },
-  name: { fontSize: 16, fontWeight: '600', color: '#0F172A' },
-  area: { fontSize: 12, color: '#64748B', marginTop: 4 },
+  listContent: { paddingHorizontal: theme.spacing.lg },
+  name: { fontSize: theme.typography.subtitle, fontWeight: '700', color: theme.colors.text },
+  area: { fontSize: theme.typography.small, color: theme.colors.muted, marginTop: 2 },
   badge: {
     alignSelf: 'flex-start',
-    paddingHorizontal: 8,
+    paddingHorizontal: theme.spacing.sm,
     paddingVertical: 2,
-    borderRadius: 10,
-    marginTop: 6,
+    borderRadius: theme.radius.sm,
+    marginTop: theme.spacing.xs,
   },
-  badgeAdmin: { backgroundColor: '#DBEAFE' },
-  badgeProfesor: { backgroundColor: '#DCFCE7' },
-  badgeText: { fontSize: 11, fontWeight: '600', color: '#0F172A' },
+  badgeAdmin: { backgroundColor: theme.colors.badgeAdminBg },
+  badgeProfesor: { backgroundColor: theme.colors.badgeProfesorBg },
+  badgeText: { fontSize: theme.typography.small, fontWeight: '700', color: theme.colors.text },
 });
